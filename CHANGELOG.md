@@ -1,5 +1,81 @@
 # Changelog
 
+## [0.7.0](https://github.com/thelamer/romm-broker/compare/v0.6.0...v0.7.0) (2026-08-28)
+
+
+### Features
+
+* add boot_failed field to the Emulator base class ([cfc3ab8](https://github.com/thelamer/romm-broker/commit/cfc3ab8232d5b1857545e0895a0a576d53cc399b))
+* add disc-swap contract to the emulator base class ([61d3c4e](https://github.com/thelamer/romm-broker/commit/61d3c4effb3dcd6e94eb5cc11b643b9578f91d2b))
+* add PPSSPP emulator module with working save/load-state ([abae001](https://github.com/thelamer/romm-broker/commit/abae001fe7375ff3013605a190f6b540f4728ffc))
+* add save states and PINE boot verification to RPCS3 ([f8b8797](https://github.com/thelamer/romm-broker/commit/f8b8797988c045e028f14354d023438f7e770a1b))
+* add standalone dolphin launcher to the webstation broker ([7949385](https://github.com/thelamer/romm-broker/commit/794938522d5205c6844663e53dc18775de82d7e1))
+* bring DuckStation to standalone parity, add RetroArch PS1 core ([99e68e1](https://github.com/thelamer/romm-broker/commit/99e68e1909d64205b6d8fe77422156e8f3224427))
+* gate Dolphin's whole-card memory sync to GameCube, not Wii ([9e1f398](https://github.com/thelamer/romm-broker/commit/9e1f398ac4ae7b06c4714e4bedcd9b18db0d1d32))
+* gate the room comms surface on the session multiplayer flag and add invite links ([9934ccd](https://github.com/thelamer/romm-broker/commit/9934ccdee8787408675eb67fe14947e9e6b26cf5))
+* generalize PCSX2's deferred-load thread into a boot watchdog ([b556428](https://github.com/thelamer/romm-broker/commit/b5564284d0d9aa89e3d49ae4e52694fcc5d61b59))
+* prefer m3u playlists on retroarch disc platforms ([2c8dcd9](https://github.com/thelamer/romm-broker/commit/2c8dcd9eab25bb42127e57501e48ec5b519a90b1))
+* **retroarch:** link core assets so the ppsspp core can boot ([976b1f3](https://github.com/thelamer/romm-broker/commit/976b1f3f4c0dde5077dc33bc96ab03d7d83d0bd1))
+* **room:** move track capture/presentation onto a worker-based pipeline ([3281f6e](https://github.com/thelamer/romm-broker/commit/3281f6eb0572dd42c16cdc10ca2820f649d247e4))
+* RPCS3 archive (7z/zip/rar) boot support with LRU-evicted cache ([0b58abe](https://github.com/thelamer/romm-broker/commit/0b58abe66baa14d479e14e2f0d045e8db3f3cec3))
+* serve swap-disc on the webstation broker ([f9db17e](https://github.com/thelamer/romm-broker/commit/f9db17ea78e2d120caa97e85d3dcf73c45a20dca))
+* surface PCSX2 boot-failure detection on GET /api/session/status ([bd109ab](https://github.com/thelamer/romm-broker/commit/bd109ab119145b5d9e46caca951dd33691711f6c))
+* swap discs on a running retroarch core ([85e8f5c](https://github.com/thelamer/romm-broker/commit/85e8f5c71e00278917a227e09e9352fb6391966d))
+* sync save states between the webstation broker and RomM ([3663ec4](https://github.com/thelamer/romm-broker/commit/3663ec42be9ede35fe23aafc751dbbbea6436ae5))
+* sync the whole PS2 memory card as a folder card ([12fcd8c](https://github.com/thelamer/romm-broker/commit/12fcd8c66c0dab78eec3a79f950fc34504aef0a0))
+* track the retroarch playlist and mounted disc index ([1621d41](https://github.com/thelamer/romm-broker/commit/1621d41a9de4d18c08294d97d108ff8273c178fd))
+* **xemu:** add XEMU_SOFTWARE_GL to force CPU rendering for xemu alone ([658d0b4](https://github.com/thelamer/romm-broker/commit/658d0b46b57b1e523336b8c0a4a964104a524ee0))
+* **xemu:** pin fullscreen on startup alongside the renderer ([b9565e6](https://github.com/thelamer/romm-broker/commit/b9565e639ea0baa7a9d6bcee27ac18619d0ff678))
+
+
+### Bug Fixes
+
+* add PPSSPP emulator module with working save/load-state ([0e8c013](https://github.com/thelamer/romm-broker/commit/0e8c0131cbccc42b01121c5e763e91b970379fe3))
+* address marko review findings in RPCS3 archive support ([15828fe](https://github.com/thelamer/romm-broker/commit/15828fe3fe819cbffedbca5541b4befbc838750d))
+* address marko review findings in RPCS3 savestate parity ([735841f](https://github.com/thelamer/romm-broker/commit/735841f5c24bfae61ba91b748ddecf9b755c4bab))
+* address second marko review of emulator modules ([99a94e0](https://github.com/thelamer/romm-broker/commit/99a94e02c097443e59c19eace997e765778de69c))
+* cap chat DOM nodes, not just the message store ([00c43d1](https://github.com/thelamer/romm-broker/commit/00c43d164ec929a32e1bd71a3d65657915cb1b51))
+* cap FATX test image size to avoid exhausting CI runner disk ([b48c6d6](https://github.com/thelamer/romm-broker/commit/b48c6d675459b19858e0963986586c0579252ac8))
+* close gaps found by post-remediation audit ([567b15b](https://github.com/thelamer/romm-broker/commit/567b15b891ac7018be30f70c46f1e30f9829c4c2))
+* disable savestate thumbnails for GPU-rendered dolphin core ([584fc7f](https://github.com/thelamer/romm-broker/commit/584fc7feadf14d81c5f07601bc293380d510291a))
+* guard against a dead or superseded core committing a disc swap ([bb13df3](https://github.com/thelamer/romm-broker/commit/bb13df3969c93a1e05528828f8bed1db0bdef7ca))
+* keep the exit state readable after the session is torn down ([6465922](https://github.com/thelamer/romm-broker/commit/64659220d83bdfc60d3fa8c5660096f6b868d21a))
+* lay down the pcsx2 folder card marker so the slot 1 card is recognized ([c700f96](https://github.com/thelamer/romm-broker/commit/c700f96db66bb8ce7034613b47c97c60e7a61aa1))
+* lock disc swaps against each other and the deferred resume load ([f8022ad](https://github.com/thelamer/romm-broker/commit/f8022adc08d5c125e5451483dde5549fa2bb7480))
+* match xemu save directories on the disk's own case ([1caf2c8](https://github.com/thelamer/romm-broker/commit/1caf2c87bc6354f474cb148bd101e31af1915198))
+* Merge pull request [#13](https://github.com/thelamer/romm-broker/issues/13) from romm-streaming/dev ([0e8c013](https://github.com/thelamer/romm-broker/commit/0e8c0131cbccc42b01121c5e763e91b970379fe3))
+* pin dolphin's gamecube slot a to the gci folder card device ([7bda8c5](https://github.com/thelamer/romm-broker/commit/7bda8c5836b5addf77eace4bccd27576a7699a4c))
+* pin the retroarch joypad driver to linuxraw so selkies pads register ([37ad1be](https://github.com/thelamer/romm-broker/commit/37ad1beedb6d7f83c515779c5d38074615c86feb))
+* reap orphaned emulators on broker start and let an exit skip the state save ([5244955](https://github.com/thelamer/romm-broker/commit/52449552d1ae9289c7438cd1fdc94bd12e91347f))
+* reconnect the room websocket on abnormal closure ([9396a11](https://github.com/thelamer/romm-broker/commit/9396a111738c769ec682a6c3944ed0ed43a83ca4))
+* reject non-regular-file default.xex symlinks in xenia resolve_rom_file ([c757cae](https://github.com/thelamer/romm-broker/commit/c757caeff97d87372c386ff2ed441a086b7e406a))
+* reject non-regular-file eboot.bin symlinks in resolve_rom_file ([7c09dfd](https://github.com/thelamer/romm-broker/commit/7c09dfd9d4644e4e095f20bb256cad7c12b8e58d))
+* repo-wide security remediation from full audit ([6f612f1](https://github.com/thelamer/romm-broker/commit/6f612f1afdb142f9d8adde3a823fed989f6411f2))
+* **retroarch:** drop the inline platform table shadowing the json one ([8160d6f](https://github.com/thelamer/romm-broker/commit/8160d6fa7bacf6a5b808dc76b8be73092f758578))
+* **retroarch:** link ppsspp assets where the core actually reads them ([16ee9e0](https://github.com/thelamer/romm-broker/commit/16ee9e00d6551cc27bfec723c20f146d3750fca6))
+* run the startup reap on the app that is actually served ([c30e2ca](https://github.com/thelamer/romm-broker/commit/c30e2ca603db12ff111d63ad39e41f01f22ec6ee))
+* saved must not stay true when the state stat fails ([fa572d6](https://github.com/thelamer/romm-broker/commit/fa572d6b04098ed162c5d356ae8a241cd6c78106))
+* skip a synced memory card left in an older save archive instead of failing the restore ([97cc401](https://github.com/thelamer/romm-broker/commit/97cc4019183bca8510d3867922e905c3547e82bf))
+* treat resume slot 0 as a resume request, not as no request ([b8536c0](https://github.com/thelamer/romm-broker/commit/b8536c0fa2bd6b65d9206b85639668ee9760eea9))
+* use constant-time compare for the room websocket's controller token ([b57b319](https://github.com/thelamer/romm-broker/commit/b57b3192df9227c46f3c2ce1e8896283941c60f0))
+* validate eboot.bin stays inside ROM_ROOT in shadps4 resolve_rom_file ([58298fe](https://github.com/thelamer/romm-broker/commit/58298fee64f6cd84f9e802a37e2bca80f3ec0779))
+* **xemu:** pin the renderer to OpenGL before each launch ([c1f6f73](https://github.com/thelamer/romm-broker/commit/c1f6f732c740cbdd0a06dad400a8f5c1c57a4fba))
+
+
+### Documentation
+
+* add CONTRIBUTING.md and set the LICENSE copyright holder ([75bfcc7](https://github.com/thelamer/romm-broker/commit/75bfcc7be60082114d9e894ad899146eebf05e85))
+* add migration guide from per-emulator brokers to webstation-broker ([4625853](https://github.com/thelamer/romm-broker/commit/46258530182a12df26bcb704d48e25a8c9fedef3))
+* add player/frontend guides and fix documentation audit gaps ([8661a20](https://github.com/thelamer/romm-broker/commit/8661a203b93aafeef2b4666a6d3dec2119d5366d))
+* add README quickstart, fix developer guide gaps ([e419e3b](https://github.com/thelamer/romm-broker/commit/e419e3b8322f08f40a770050d7e09b61ef3c37d6))
+* add RetroArch core BIOS/firmware manifest ([9bff9be](https://github.com/thelamer/romm-broker/commit/9bff9be9ef99bcd365d5bc8c48dd821d24cb55b7))
+* add reverse proxy guide for serving the container from the parent origin ([653bbcf](https://github.com/thelamer/romm-broker/commit/653bbcf070631f16bbfe47c02a9a747de1a8346c))
+* add shadPS4 parity design spec ([9d743b7](https://github.com/thelamer/romm-broker/commit/9d743b7741b4b9cd69fba35fc3d5da345e2e5b3f))
+* add shadPS4 parity implementation plan ([cf2ec88](https://github.com/thelamer/romm-broker/commit/cf2ec88eccb9fb5b281d279ee7dc96faca6ec3b7))
+* document the state routes and the retroarch launcher ([cea0c29](https://github.com/thelamer/romm-broker/commit/cea0c296d055ca7220d1dfc2afe84f81e15f26a9))
+* replace the Zoraxy virtual directory recipe with a host rule ([9e22c68](https://github.com/thelamer/romm-broker/commit/9e22c68d95d234de06c4507fa8124ddb90e6605a))
+* trim unsupported emulator references from the readme ([13c7aea](https://github.com/thelamer/romm-broker/commit/13c7aead50a6ccea9325e45fb5f6cd3e447bd0d8))
+
 ## [0.6.0](https://github.com/romm-streaming/romm-broker/compare/v0.5.0...v0.6.0) (2026-08-24)
 
 
